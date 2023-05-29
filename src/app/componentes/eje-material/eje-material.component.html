@@ -1,1 +1,51 @@
-<p>eje-material works!</p>
+<h3>Botones</h3>
+<button mat-button>Agregar</button>
+<button mat-button color="primary" (click)="eventoBoton()">Agregar</button>
+<button mat-button color="accent">Agregar</button>
+
+<button mat-raised-button color="accent">Agregar</button>
+<button mat-raised-button color="warn">Agregar</button>
+
+<button mat-stroked-button color="disabled">Agregar</button>
+<button mat-stroked-button color="primary">Agregar</button>
+
+<br />
+<br />
+
+<h3>Cards</h3>
+
+<div class="row">
+    <!--uso de grilla de bootstarp col-md-3 que divide la pagina en 12 y tenemos 4 cards por 3 -->
+    <div *ngFor="let curso of Cursos" class="col-md-3">
+        <mat-card>
+            <mat-card-title>{{curso.nombre}}</mat-card-title>
+            <mat-card-subtitle>Impartido Por: {{curso.profesor}}</mat-card-subtitle>
+            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+            <mat-card-content>La comision es: {{curso.comision}}</mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="accent">Agregar</button>
+                <br />
+                <button mat-stroked-button color="primary">Compartir</button>
+            </mat-card-actions>
+        </mat-card>
+
+    </div>
+
+</div>
+
+<h3>Form</h3>
+
+<mat-form-field>
+    <mat-label>Filtrar</mat-label>
+    <input type="text" placeholder="Buscar..." matInput>
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+    <mat-label>Filtrar</mat-label>
+    <input type="text" placeholder="Buscar..." matInput>
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+    <mat-label>Filtrar</mat-label>
+    <input type="text" placeholder="Buscar..." matInput>
+</mat-form-field>
