@@ -1,0 +1,88 @@
+<p>Mat Table</p>
+
+<!--Caja Texto-->
+<!--
+<mat-form-field>
+    <mat-label> Filtrar </mat-label>
+    <input type="text" matInput (keyup)="filtrar($event)">
+</mat-form-field>
+
+-->
+<!--Nuevos Filtros-->
+<div class="row">
+    <!--el md-6 le dice a bootsrap divida pantalla en 2: 6 y 6-->
+    <mat-form-field class="col-md-6">
+        <mat-label>Filtrar por nombre de curso</mat-label>
+        <input type="text" matInput (keyup)="filtrarCurso()">
+    </mat-form-field>
+
+    <mat-form-field class="col-md-6">
+        <mat-label>Filtrar por nombre de curso</mat-label>
+        <input type="text" matInput (keyup)="filtrarComision()">
+    </mat-form-field>
+</div>
+
+<!-- El data source es de donde provienen los datos que definimos como Curso-->
+<div class="row">
+    <table mat-table [dataSource]="dataSource" class="col-md-12">
+        <!-- Nombre del curso-->
+        <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef="">nombre</th>
+            <td mat-cell *matCellDef="let curso">{{curso.nombre | uppercase}} </td>
+        </ng-container>
+
+        <!-- Comision del curso-->
+        <ng-container matColumnDef="comision">
+            <th mat-header-cell *matHeaderCellDef="">comision</th>
+            <td mat-cell *matCellDef="let curso">{{curso.comision}} </td>
+        </ng-container>
+
+        <!-- Comision del profesor-->
+        <ng-container matColumnDef="profesor">
+            <th mat-header-cell *matHeaderCellDef="">profesor</th>
+            <td mat-cell *matCellDef="let curso">{{curso.profesor}} </td>
+        </ng-container>
+
+        <!-- Fecha Inicio-->
+        <ng-container matColumnDef="fechaInicio">
+            <th mat-header-cell *matHeaderCellDef="">fechaInicio</th>
+            <td mat-cell *matCellDef="let curso">{{curso.fechaInicio | date: 'dd/MM/YYYY'}} </td>
+        </ng-container>
+
+        <!-- Fecha Fin-->
+        <ng-container matColumnDef="fechaFin">
+            <th mat-header-cell *matHeaderCellDef="">fechaFin</th>
+            <td mat-cell *matCellDef="let curso">{{curso.fechaFin | date: 'dd/MM/YYYY'}} </td>
+        </ng-container>
+
+        <!-- Inscripciones Abiertas-->
+        <ng-container matColumnDef="insAbierta">
+            <th mat-header-cell *matHeaderCellDef="">insAbierta</th>
+            <td mat-cell *matCellDef="let curso">{{curso.insAbierta | booleanatexto: 'Si' : 'No'}} </td>
+        </ng-container>
+
+        <!-- Acciones-->
+        <ng-container matColumnDef="acciones">
+            <th mat-header-cell *matHeaderCellDef="">acciones</th>
+            <td mat-cell *matCellDef>
+                <!--Los nombres de los iconos estan google fonts-->
+                <button mat-icon-button>
+                    <mat-icon>edit</mat-icon>
+                </button>
+
+                <button mat-icon-button>
+                    <mat-icon>doneall</mat-icon>
+                </button>
+                
+                <button mat-icon-button>
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <!-- Definir filas con row-->
+        <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+        <!-- a columns le paso el arr de columnas-->
+        <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
+    </table>
+</div>

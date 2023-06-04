@@ -6,24 +6,25 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormularioReactComponent } from './componentes/formulario-react/formulario-react.component';
 import { EjeMaterialComponent } from './componentes/eje-material/eje-material.component';
 
-import { MatButtonModule } from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
+import { TablaComponent } from './componentes/tabla/tabla.component';
+import { MaterialModule } from './material.module';
+import { BooleanatextoPipe } from './pipes/booleanatexto.pipe';
+import { BooleanoEstiloDirective } from './directives/booleano-estilo.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormularioReactComponent,
-    EjeMaterialComponent
+    EjeMaterialComponent,
+    TablaComponent,
+    BooleanatextoPipe,
+    BooleanoEstiloDirective
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatInputModule //Para buscar en caja de texto
+    MaterialModule //guarda las imp de ang material
+
   ],
   providers: [],
   bootstrap: [AppComponent]

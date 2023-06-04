@@ -16,7 +16,7 @@
 
 <div class="row">
     <!--uso de grilla de bootstarp col-md-3 que divide la pagina en 12 y tenemos 4 cards por 3 -->
-    <div *ngFor="let curso of Cursos" class="col-md-3">
+    <div *ngFor="let curso of cursos" class="col-md-3">
         <mat-card>
             <mat-card-title>{{curso.nombre}}</mat-card-title>
             <mat-card-subtitle>Impartido Por: {{curso.profesor}}</mat-card-subtitle>
@@ -24,7 +24,7 @@
             <mat-card-content>La comision es: {{curso.comision}}</mat-card-content>
             <mat-card-actions>
                 <button mat-raised-button color="accent">Agregar</button>
-                <br />
+                <br/>
                 <button mat-stroked-button color="primary">Compartir</button>
             </mat-card-actions>
         </mat-card>
